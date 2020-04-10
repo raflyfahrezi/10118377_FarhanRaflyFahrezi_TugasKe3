@@ -272,8 +272,10 @@ public class kalkulator extends javax.swing.JFrame {
             public void run() {
                 Color background = new Color(36, 36, 36);
                 kalkulator kalkulatorObj = new kalkulator();
-                kalkulatorObj.setVisible(true);
+                kalkulatorObj.setLocationRelativeTo(null);
                 kalkulatorObj.getContentPane().setBackground(background);
+                kalkulatorObj.setTitle("Kalkulator");
+                kalkulatorObj.setVisible(true);
             }
         });
     }
