@@ -6,6 +6,7 @@
 package raflyfahrezi;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,11 +19,29 @@ public class kalkulator extends javax.swing.JFrame {
      */
     public kalkulator() {
         initComponents();
+        
+        
+        
         btnKali.setBackground(Color.ORANGE);
         btnBagi.setBackground(Color.ORANGE);
         btnHasil.setBackground(Color.ORANGE);
         btnKurang.setBackground(Color.ORANGE);
         btnTambah.setBackground(Color.ORANGE);
+        
+        No0.setBackground(Color.DARK_GRAY);
+        No1.setBackground(Color.DARK_GRAY);
+        No2.setBackground(Color.DARK_GRAY);
+        No3.setBackground(Color.DARK_GRAY);
+        No4.setBackground(Color.DARK_GRAY);
+        No5.setBackground(Color.DARK_GRAY);
+        No6.setBackground(Color.DARK_GRAY);
+        No7.setBackground(Color.DARK_GRAY);
+        No8.setBackground(Color.DARK_GRAY);
+        No9.setBackground(Color.DARK_GRAY);
+        btnTitik.setBackground(Color.DARK_GRAY);
+        
+        txtCurrent.setForeground(Color.WHITE);
+        txtResult.setForeground(Color.WHITE);
     }
 
     /**
@@ -49,12 +68,14 @@ public class kalkulator extends javax.swing.JFrame {
         btnTambah = new javax.swing.JButton();
         btnKurang = new javax.swing.JButton();
         btnHasil = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         btnKali = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtCurrent = new javax.swing.JLabel();
+        txtResult = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(36, 36, 36));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         No4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No4.setText("4");
@@ -95,7 +116,6 @@ public class kalkulator extends javax.swing.JFrame {
         No9.setText("9");
 
         btnBagi.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        btnBagi.setForeground(new java.awt.Color(255, 255, 255));
         btnBagi.setText("/");
 
         btnTambah.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -107,8 +127,8 @@ public class kalkulator extends javax.swing.JFrame {
         btnHasil.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnHasil.setText("=");
 
-        jButton17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton17.setText("Clear");
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnClear.setText("Clear");
 
         btnKali.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnKali.setText("x");
@@ -118,12 +138,12 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("0");
+        txtCurrent.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtCurrent.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtCurrent.setText("0");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtResult.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtResult.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,10 +152,10 @@ public class kalkulator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCurrent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(No0, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,19 +187,19 @@ public class kalkulator extends javax.swing.JFrame {
                             .addComponent(btnKurang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnHasil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnKali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(btnKali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -250,7 +270,10 @@ public class kalkulator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new kalkulator().setVisible(true);
+                Color background = new Color(36, 36, 36);
+                kalkulator kalkulatorObj = new kalkulator();
+                kalkulatorObj.setVisible(true);
+                kalkulatorObj.getContentPane().setBackground(background);
             }
         });
     }
@@ -267,13 +290,13 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JButton No8;
     private javax.swing.JButton No9;
     private javax.swing.JButton btnBagi;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnHasil;
     private javax.swing.JButton btnKali;
     private javax.swing.JButton btnKurang;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnTitik;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel txtCurrent;
+    private javax.swing.JLabel txtResult;
     // End of variables declaration//GEN-END:variables
 }
