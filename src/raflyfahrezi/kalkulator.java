@@ -325,10 +325,10 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_No4ActionPerformed
 
     private void btnKaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaliActionPerformed
-        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+        if (operatorIsSet == false && txtCurrent.getText() != "0" && txtCurrent.getText() != "") {
             txtResult.setText(getText().concat(" x "));
             value1 = Double.valueOf(getText());
-            txtCurrent.setText("0");
+            txtCurrent.setText("");
             
             typeOfOperator = "x";
             operatorIsSet = true;
@@ -400,10 +400,10 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_No9ActionPerformed
 
     private void btnBagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBagiActionPerformed
-        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+        if (operatorIsSet == false && txtCurrent.getText() != "0" && txtCurrent.getText() != "") {
             txtResult.setText(getText().concat(" / "));
             value1 = Double.valueOf(getText());
-            txtCurrent.setText("0");
+            txtCurrent.setText("");
             
             typeOfOperator = "/";
             operatorIsSet = true;
@@ -411,10 +411,10 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBagiActionPerformed
 
     private void btnKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurangActionPerformed
-        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+        if (operatorIsSet == false && txtCurrent.getText() != "0" && txtCurrent.getText() != "") {
             txtResult.setText(getText().concat(" - "));
             value1 = Double.valueOf(getText());
-            txtCurrent.setText("0");
+            txtCurrent.setText("");
             
             typeOfOperator = "-";
             operatorIsSet = true;
@@ -422,10 +422,10 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKurangActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+        if (operatorIsSet == false && txtCurrent.getText() != "0" && txtCurrent.getText() != "") {
             txtResult.setText(getText().concat(" + "));
             value1 = Double.valueOf(getText());
-            txtCurrent.setText("0");
+            txtCurrent.setText("");
             
             typeOfOperator = "+";
             operatorIsSet = true;
