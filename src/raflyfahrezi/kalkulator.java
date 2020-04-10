@@ -17,6 +17,10 @@ public class kalkulator extends javax.swing.JFrame {
     /**
      * Creates new form kalkulator
      */
+    boolean operatorIsSet = false;
+    String typeOfOperator = null;
+    double value1 = 0;
+    
     public kalkulator() {
         initComponents();
         
@@ -42,6 +46,11 @@ public class kalkulator extends javax.swing.JFrame {
         
         txtCurrent.setForeground(Color.WHITE);
         txtResult.setForeground(Color.WHITE);
+    }
+    
+    private String getText() {
+        String value = String.valueOf(txtCurrent.getText());
+        return value;
     }
 
     /**
@@ -87,48 +96,123 @@ public class kalkulator extends javax.swing.JFrame {
 
         No5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No5.setText("5");
+        No5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No5ActionPerformed(evt);
+            }
+        });
 
         No6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No6.setText("6");
+        No6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No6ActionPerformed(evt);
+            }
+        });
 
         No1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No1.setText("1");
+        No1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No1ActionPerformed(evt);
+            }
+        });
 
         No2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No2.setText("2");
+        No2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No2ActionPerformed(evt);
+            }
+        });
 
         No3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No3.setText("3");
+        No3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No3ActionPerformed(evt);
+            }
+        });
 
         No0.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No0.setText("0");
+        No0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No0ActionPerformed(evt);
+            }
+        });
 
         btnTitik.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnTitik.setText(".");
+        btnTitik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitikActionPerformed(evt);
+            }
+        });
 
         No8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No8.setText("8");
+        No8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No8ActionPerformed(evt);
+            }
+        });
 
         No7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No7.setText("7");
+        No7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No7ActionPerformed(evt);
+            }
+        });
 
         No9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         No9.setText("9");
+        No9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                No9ActionPerformed(evt);
+            }
+        });
 
         btnBagi.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBagi.setText("/");
+        btnBagi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBagiActionPerformed(evt);
+            }
+        });
 
         btnTambah.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnTambah.setText("+");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
 
         btnKurang.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnKurang.setText("-");
+        btnKurang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKurangActionPerformed(evt);
+            }
+        });
 
         btnHasil.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnHasil.setText("=");
+        btnHasil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHasilActionPerformed(evt);
+            }
+        });
 
         btnClear.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         btnKali.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnKali.setText("x");
@@ -233,12 +317,174 @@ public class kalkulator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void No4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No4ActionPerformed
-        // TODO add your handling code here:
+        if (getText().equals("0")) {
+            txtCurrent.setText("4");
+        } else {
+            txtCurrent.setText(getText().concat("4"));
+        }
     }//GEN-LAST:event_No4ActionPerformed
 
     private void btnKaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaliActionPerformed
-        // TODO add your handling code here:
+        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+            txtResult.setText(getText().concat(" x "));
+            value1 = Double.valueOf(getText());
+            txtCurrent.setText("0");
+            
+            typeOfOperator = "x";
+            operatorIsSet = true;
+        }
     }//GEN-LAST:event_btnKaliActionPerformed
+
+    private void No1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No1ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("1");
+        } else {
+            txtCurrent.setText(getText().concat("1"));
+        }
+    }//GEN-LAST:event_No1ActionPerformed
+
+    private void No2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No2ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("2");
+        } else {
+            txtCurrent.setText(getText().concat("2"));
+        }
+    }//GEN-LAST:event_No2ActionPerformed
+
+    private void No3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No3ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("3");
+        } else {
+            txtCurrent.setText(getText().concat("3"));
+        }
+    }//GEN-LAST:event_No3ActionPerformed
+
+    private void No5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No5ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("5");
+        } else {
+            txtCurrent.setText(getText().concat("5"));
+        }
+    }//GEN-LAST:event_No5ActionPerformed
+
+    private void No6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No6ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("6");
+        } else {
+            txtCurrent.setText(getText().concat("6"));
+        }
+    }//GEN-LAST:event_No6ActionPerformed
+
+    private void No7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No7ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("7");
+        } else {
+            txtCurrent.setText(getText().concat("7"));
+        }
+    }//GEN-LAST:event_No7ActionPerformed
+
+    private void No8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No8ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("8");
+        } else {
+            txtCurrent.setText(getText().concat("8"));
+        }
+    }//GEN-LAST:event_No8ActionPerformed
+
+    private void No9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No9ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("9");
+        } else {
+            txtCurrent.setText(getText().concat("9"));
+        }
+    }//GEN-LAST:event_No9ActionPerformed
+
+    private void btnBagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBagiActionPerformed
+        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+            txtResult.setText(getText().concat(" / "));
+            value1 = Double.valueOf(getText());
+            txtCurrent.setText("0");
+            
+            typeOfOperator = "/";
+            operatorIsSet = true;
+        }
+    }//GEN-LAST:event_btnBagiActionPerformed
+
+    private void btnKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurangActionPerformed
+        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+            txtResult.setText(getText().concat(" - "));
+            value1 = Double.valueOf(getText());
+            txtCurrent.setText("0");
+            
+            typeOfOperator = "-";
+            operatorIsSet = true;
+        }
+    }//GEN-LAST:event_btnKurangActionPerformed
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        if (operatorIsSet == false && txtCurrent.getText() != "0") {
+            txtResult.setText(getText().concat(" + "));
+            value1 = Double.valueOf(getText());
+            txtCurrent.setText("0");
+            
+            typeOfOperator = "+";
+            operatorIsSet = true;
+        }
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnHasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHasilActionPerformed
+        if (operatorIsSet && !getText().equals("")) {
+            double result = 0;
+            String temp = "";
+            
+            switch (typeOfOperator) {
+                case "x" :
+                        result = value1 * Double.valueOf(getText());
+                    break;
+                case "/" :
+                        result = value1 / Double.valueOf(getText());
+                    break;
+                case "-" :
+                        result = value1 - Double.valueOf(getText());
+                    break;
+                case "+" :
+                        result = value1 + Double.valueOf(getText());
+                    break;
+            }
+            
+            if (result == Math.floor(result)) {
+                txtCurrent.setText(String.valueOf((int)result));
+            } else {
+                txtCurrent.setText(String.format("%.2f", result));
+            }
+            
+            txtResult.setText("");
+            operatorIsSet = false;
+            typeOfOperator = null;
+        }
+    }//GEN-LAST:event_btnHasilActionPerformed
+
+    private void No0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_No0ActionPerformed
+        if (getText().equals("0")) {
+            txtCurrent.setText("0");
+        } else {
+            txtCurrent.setText(getText().concat("0"));
+        }
+    }//GEN-LAST:event_No0ActionPerformed
+
+    private void btnTitikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitikActionPerformed
+        if (!getText().contains(".")) {
+            txtCurrent.setText(getText().concat("."));
+        }
+    }//GEN-LAST:event_btnTitikActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtCurrent.setText("0");
+        txtResult.setText("");
+        operatorIsSet = false;
+        typeOfOperator = null;
+        value1 = 0;
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
