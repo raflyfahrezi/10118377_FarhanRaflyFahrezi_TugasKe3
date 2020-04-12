@@ -24,8 +24,6 @@ public class kalkulator extends javax.swing.JFrame {
     public kalkulator() {
         initComponents();
         
-        
-        
         btnKali.setBackground(Color.ORANGE);
         btnBagi.setBackground(Color.ORANGE);
         btnHasil.setBackground(Color.ORANGE);
@@ -46,6 +44,24 @@ public class kalkulator extends javax.swing.JFrame {
         
         txtCurrent.setForeground(Color.WHITE);
         txtResult.setForeground(Color.WHITE);
+        
+        No0.setMnemonic('0');
+        No1.setMnemonic('1');
+        No2.setMnemonic('2');
+        No3.setMnemonic('3');
+        No4.setMnemonic('4');
+        No5.setMnemonic('5');
+        No6.setMnemonic('6');
+        No7.setMnemonic('7');
+        No8.setMnemonic('8');
+        No9.setMnemonic('9');
+        
+        btnKali.setMnemonic('x');
+        btnBagi.setMnemonic('/');
+        btnKurang.setMnemonic('-');
+        btnTambah.setMnemonic('+');
+        btnHasil.setMnemonic('H');
+        btnClear.setMnemonic('C');
     }
     
     private String getText() {
